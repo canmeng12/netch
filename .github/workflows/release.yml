@@ -85,6 +85,7 @@ jobs:
           $hash=(Get-FileHash Netch.7z -Algorithm SHA256).Hash.ToLower()
           echo "NETCH_SHA256=$hash" | Out-File -Append -Encoding UTF8 -FilePath $Env:GITHUB_ENV
 
+
       - name: Release
         uses: softprops/action-gh-release@v1
         env:

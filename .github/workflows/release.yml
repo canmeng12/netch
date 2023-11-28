@@ -71,7 +71,7 @@ jobs:
       - name: Build
         shell: pwsh
         run: |
-          .\build.ps1 -Configuration Release -OutputPath release
+          .\build1.ps1
 
       - name: Package
         shell: pwsh

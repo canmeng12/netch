@@ -1,6 +1,6 @@
 Set-Location (Split-Path $MyInvocation.MyCommand.Path -Parent)
 
-git clone https://github.com/shadowsocksrr/shadowsocksr-libev src
+git clone https://github.com/shadowsocksrr/shadowsocksr-libev -b 'Akkariiin/develop' src
 if ( -Not $? ) {
     exit $lastExitCode
 }

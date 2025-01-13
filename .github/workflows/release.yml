@@ -21,21 +21,21 @@ jobs:
           echo "SOURCE_ROUTEHELPER_SHA256=$(.\sha256.ps1 .\RouteHelper)" | Out-File -Append -Encoding UTF8 -FilePath $Env:GITHUB_ENV
 
       - name: Cache Netch
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           key: Netch-${{ runner.os }}-Netch-${{ env.SOURCE_NETCH_SHA256 }}
           path: |
             .\Netch\bin
 
       - name: Cache Redirector
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           key: Netch-${{ runner.os }}-Redirector-${{ env.SOURCE_REDIRECTOR_SHA256 }}
           path: |
             .\Redirector\bin
 
       - name: Cache RouteHelper
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           key: Netch-${{ runner.os }}-RouteHelper-${{ env.SOURCE_ROUTEHELPER_SHA256 }}
           path: |
@@ -43,12 +43,12 @@ jobs:
 
       - name: Check Other
         id: check_other
-        uses: andstor/file-existence-action@v2
+        uses: andstor/file-existence-action@v3
         with:
           files: .\other\release\aiodns.bin
 
       - name: Setup Go
-        uses: actions/setup-go@v3
+        uses: actions/setup-go@v5
         if: steps.check_other.outputs.files_exists == 'false'
         with:
           go-version: stable
